@@ -1,0 +1,2 @@
+build docker image with graphite-api and graphite-influxdb
+using http://phusion.github.io/baseimage-docker/
