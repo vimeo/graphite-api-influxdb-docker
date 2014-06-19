@@ -1,0 +1,49 @@
+search_index: /srv/graphite/index
+finders:
+  - graphite_influxdb.InfluxdbFinder
+functions:
+  - graphite_api.functions.SeriesFunctions
+  - graphite_api.functions.PieFunctions
+influxdb:
+   host: <host>
+   port: 8086
+   user: graphite
+   pass: graphite
+   db:   graphite
+   cheat_times: true
+whisper:
+  directories:
+    - /srv/graphite/whisper
+time_zone: America/New_York
+logging:
+  version: 1
+  disable_existing_loggers: true
+  handlers:
+    file:
+      class: logging.FileHandler
+      filename: /var/log/graphite-api.log
+    stdout:
+      class: logging.StreamHandler
+  loggers:
+    graphite_api:
+      handlers:
+        - stdout
+      propagate: true
+      level: DEBUG
+    graphite_influxdb:
+      handlers:
+        - stdout
+      propagate: true
+      level: DEBUG
+    root:
+      handlers:
+        - stdout
+      propagate: true
+      level: DEBUG
+# sentry_dsn: <dsn>
+cache:
+    # memcache seems to have issues with storing the series. the data is too big and doesn't store it, and doesn't allow bumping size in config that much
+    #CACHE_TYPE: 'memcached'
+    #CACHE_KEY_PREFIX: 'graphite_api'
+    CACHE_TYPE: 'filesystem'
+    CACHE_DIR: '/tmp/graphite-api-cache'
