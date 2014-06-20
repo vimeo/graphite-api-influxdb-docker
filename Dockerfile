@@ -29,8 +29,8 @@ EXPOSE 8000
 
 # add our config
 
-ONBUILD ADD graphite-api.yaml /etc/graphite-api.yaml
-ONBUILD RUN chmod 0644 /etc/graphite-api.yaml
+ADD graphite-api.yaml /etc/graphite-api.yaml
+RUN chmod 0644 /etc/graphite-api.yaml
 
 # init scripts
 
