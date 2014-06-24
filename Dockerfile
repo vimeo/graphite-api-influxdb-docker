@@ -50,8 +50,9 @@ RUN cat /tmp/your_key >> /root/.ssh/authorized_keys && rm -f /tmp/your_key
 
 # dependencies
 
-RUN pip install Flask-Cache
+RUN pip install Flask-Cache statsd
 RUN pip install raven blinker
+
 # for developing:
 RUN apt-get install -y tcpdump ngrep dnsutils memcached libmemcached-dev telnet
 
@@ -60,7 +61,7 @@ RUN apt-get install -y tcpdump ngrep dnsutils memcached libmemcached-dev telnet
 
 # we need the caching support!
 RUN pip uninstall -y graphite-api 
-RUN pip install https://github.com/Dieterbe/graphite-api/tarball/cache
+RUN pip install https://github.com/Dieterbe/graphite-api/tarball/statsd
 
 # we need the latest version!
 RUN pip uninstall -y graphite-influxdb

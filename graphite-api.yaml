@@ -47,3 +47,6 @@ cache:
     #CACHE_KEY_PREFIX: 'graphite_api'
     CACHE_TYPE: 'filesystem'
     CACHE_DIR: '/tmp/graphite-api-cache'
+
+statsd:
+    host: <your statsd host here, or remove statsd section>
