@@ -29,17 +29,17 @@ logging:
       handlers:
         - stdout
       propagate: true
-      level: DEBUG
+      level: INFO
     graphite_influxdb:
       handlers:
         - stdout
       propagate: true
-      level: DEBUG
+      level: INFO
     root:
       handlers:
         - stdout
       propagate: true
-      level: DEBUG
+      level: INFO
 # sentry_dsn: <dsn>
 cache:
     # memcache seems to have issues with storing the series. the data is too big and doesn't store it, and doesn't allow bumping size in config that much
