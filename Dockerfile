@@ -59,9 +59,9 @@ RUN apt-get install -y tcpdump ngrep dnsutils memcached libmemcached-dev telnet
 
 # the best versions are often not in pypi, for now.
 
-# we need the caching support!
+# we need the caching support, and some fixes
 RUN pip uninstall -y graphite-api 
-RUN pip install https://github.com/Dieterbe/graphite-api/tarball/statsd
+RUN pip install https://github.com/Dieterbe/graphite-api/tarball/check-series-early
 
 # we need the latest version!
 RUN pip uninstall -y graphite-influxdb
