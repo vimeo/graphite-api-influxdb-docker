@@ -38,10 +38,6 @@ RUN mkdir /etc/service/graphite-api
 ADD graphite-api.sh /etc/service/graphite-api/run
 RUN chmod +x /etc/service/graphite-api/run
 
-RUN mkdir /etc/service/maintain_cache
-ADD maintain_cache.sh /etc/service/maintain_cache/run
-RUN chmod +x /etc/service/maintain_cache/run
-
 # optional. if you want the ability to use key-based ssh login
 
 ADD <your-ssh-key>.pub  /tmp/your_key
