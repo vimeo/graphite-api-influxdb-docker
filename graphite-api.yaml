@@ -10,7 +10,10 @@ influxdb:
    user: graphite
    pass: graphite
    db:   graphite
-   cheat_times: true
+   schema:
+     - ['', 60]
+     - ['high-res-metrics', 10]
+
 whisper:
   directories:
     - /srv/graphite/whisper
@@ -45,8 +48,8 @@ cache:
     # memcache seems to have issues with storing the series. the data is too big and doesn't store it, and doesn't allow bumping size in config that much
     #CACHE_TYPE: 'memcached'
     #CACHE_KEY_PREFIX: 'graphite_api'
-    CACHE_TYPE: 'filesystem'
-    CACHE_DIR: '/tmp/graphite-api-cache'
+    type: 'filesystem'
+    dir: '/tmp/graphite-api-cache'
 
 statsd:
     host: <your statsd host here, or remove statsd section>
