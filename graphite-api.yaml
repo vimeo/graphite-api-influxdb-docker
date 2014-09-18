@@ -46,8 +46,8 @@ logging:
 # sentry_dsn: <dsn>
 cache:
     # memcache seems to have issues with storing the series. the data is too big and doesn't store it, and doesn't allow bumping size in config that much
-    #CACHE_TYPE: 'memcached'
-    #CACHE_KEY_PREFIX: 'graphite_api'
+    #type: 'memcached'
+    #prefix: 'graphite_api'
     type: 'filesystem'
     dir: '/tmp/graphite-api-cache'
 
