@@ -5,7 +5,7 @@ using http://phusion.github.io/baseimage-docker/
 which means you effectively get a full working linux system with an init system, logging,
 etc.  So you can login if anything goes wrong.
 
-# howto
+# building
 
 install docker on your system, clone this repo.
 inside the working copy, modify the graphite-api.yaml, and then
@@ -15,7 +15,17 @@ docker build .
 docker run -p 8000:8000 <image-id>
 ```
 
-if you want to ssh login:
+# building a customized version
+
+add this to Dockerfile
+```
+# to enable ssh login
+ADD <your-ssh-key>.pub  /tmp/your_key
+RUN cat /tmp/your_key >> /root/.ssh/authorized_keys && rm -f /tmp/your_key
+```
+
+
+# ssh login
 
 ```
 docker ps # get container-id
