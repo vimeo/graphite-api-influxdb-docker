@@ -51,8 +51,9 @@ cache:
     type: 'filesystem'
     dir: '/tmp/graphite-api-cache'
 
+# remove statsd section to disable statsd integration
 statsd:
-    host: <your statsd host here, or remove statsd section>
+    host: <statsd host>
 
 allowed_origins:
     - '*'
