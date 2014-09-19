@@ -1,7 +1,7 @@
 # graphite-api-influxdb-docker
 
-build docker image with graphite-api and graphite-influxdb
-using http://phusion.github.io/baseimage-docker/
+builds the [vimeo/graphite-api-influxdb](https://registry.hub.docker.com/u/vimeo/graphite-api-influxdb/) docker image, with graphite-api and graphite-influxdb
+using [baseimage-docker](http://phusion.github.io/baseimage-docker/)
 which means you effectively get a full working linux system with an init system, logging,
 etc.  So you can login if anything goes wrong.
 
