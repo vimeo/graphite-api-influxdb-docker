@@ -7,25 +7,37 @@ etc.  So you can login if anything goes wrong.
 
 # building
 
-install docker on your system, clone this repo.
-inside the working copy, modify the graphite-api.yaml, and then
+* install docker on your system
+* make a new directory and put your own Dockerfile in it, it looks like so:
+
+```
+FROM dieterbe/graphite-api-influxdb
+```
+
+* put a customized graphite-api.yaml in this directory, you can base yourself off the graphite-api.yaml in this repository
+
+* build!
 
 ```
 docker build .
+```
+
+* run !
+
+```
 docker run -p 8000:8000 <image-id>
 ```
 
-# building a customized version
+# enabling ssh login
 
-add this to Dockerfile
+add this to your Dockerfile
+
 ```
-# to enable ssh login
-ADD <your-ssh-key>.pub  /tmp/your_key
+ADD <your-ssh-key>.pub /tmp/your_key
 RUN cat /tmp/your_key >> /root/.ssh/authorized_keys && rm -f /tmp/your_key
 ```
 
-
-# ssh login
+once built and running, this will allow you to login to the container like so:
 
 ```
 docker ps # get container-id
@@ -33,12 +45,10 @@ docker inspect <container-id> # look at ip
 ssh root@<ip>
 ```
 
-
 # http 500 errors
 
 on /render calls, you might get http 500 responses.
 unfortunately we can't simply log yet what happend (i.e. which exception)
+or display the errors in the http response.
 see https://github.com/brutasse/graphite-api/issues/16
 but you can make a free account on getsentry.com and use that, it works nicely.
-note that just after launching you might get a few http 500's because the cache needs to warm up,
-but after a few seconds it should work fine.
