@@ -11,7 +11,7 @@ etc.  So you can login if anything goes wrong.
 * make a new directory and put your own Dockerfile in it, it looks like so:
 
 ```
-FROM dieterbe/graphite-api-influxdb
+FROM dieter/graphite-api-influxdb
 ```
 
 * put a customized graphite-api.yaml in this directory, you can base yourself off the graphite-api.yaml in this repository

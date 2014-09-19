@@ -35,7 +35,7 @@ RUN chmod +x /etc/service/graphite-api/run
 
 # we need latest version
 RUN pip uninstall -y graphite-api 
-RUN pip install https://github.com/brutasse/graphite-api/tarball/master
+RUN pip install https://github.com/Dieterbe/graphite-api/tarball/support-templates2
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
