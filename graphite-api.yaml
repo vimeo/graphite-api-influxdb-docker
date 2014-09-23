@@ -10,6 +10,8 @@ influxdb:
    user: graphite
    pass: graphite
    db:   graphite
+   # be sure to update this to describe the resolutions of your metrics
+   # see https://github.com/vimeo/graphite-influxdb#about-the-retention-schemas
    schema:
      - ['', 60]
      - ['high-res-metrics', 10]
