@@ -14,7 +14,7 @@ etc.  So you can login if anything goes wrong.
 FROM vimeo/graphite-api-influxdb
 ```
 
-* put a customized graphite-api.yaml in this directory, you can base yourself off the graphite-api.yaml in this repository
+* put a customized graphite-api.yaml in this directory, you can base yourself off [the graphite-api.yaml in this repository](https://github.com/vimeo/graphite-api-influxdb-docker/blob/master/graphite-api.yaml)
 
 * build!
 
