@@ -13,8 +13,8 @@ influxdb:
    # be sure to update this to describe the resolutions of your metrics
    # see https://github.com/vimeo/graphite-influxdb#about-the-retention-schemas
    schema:
-     - ['', 60]
-     - ['high-res-metrics', 10]
+     - ['high-res-metrics', 1]
+     - ['^collectd', 10]
 
 whisper:
   directories:
