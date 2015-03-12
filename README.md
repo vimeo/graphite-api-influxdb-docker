@@ -28,22 +28,9 @@ docker build .
 docker run -p 8000:8000 <image-id>
 ```
 
-# enabling ssh login
+# logging in to the container
 
-add this to your Dockerfile
-
-```
-ADD <your-ssh-key>.pub /tmp/your_key
-RUN cat /tmp/your_key >> /root/.ssh/authorized_keys && rm -f /tmp/your_key
-```
-
-once built and running, this will allow you to login to the container like so:
-
-```
-docker ps # get container-id
-docker inspect <container-id> # look at ip
-ssh root@<ip>
-```
+See [container admininstration](https://github.com/phusion/baseimage-docker/blob/master/README.md#container_administration)
 
 # http 500 errors
 
@@ -52,3 +39,11 @@ unfortunately we can't simply log yet what happend (i.e. which exception)
 or display the errors in the http response.
 see https://github.com/brutasse/graphite-api/issues/16
 but you can make a free account on getsentry.com and use that, it works nicely.
+You can also try this patch for graphite-api https://github.com/brutasse/graphite-api/pull/73#issuecomment-74080310
+It works for some people (including yours truly)
+
+# Gunicorn not starting?
+This shouldn't happen to you as an end user,
+but may happen if you're tweaking this image.
+Try running in debug/standalone mode by running this script:
+https://github.com/brutasse/graphite-api/blob/master/bin/graphite
