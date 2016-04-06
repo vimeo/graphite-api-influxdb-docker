@@ -28,6 +28,12 @@ docker build .
 docker run -p 8000:8000 <image-id>
 ```
 
+If you want, you can build with a name and run the container with this name:
+```
+docker build . -t <name>
+docker run -p 8000:8000 <name> 
+```
+
 # logging in to the container
 
 See [container admininstration](https://github.com/phusion/baseimage-docker/blob/master/README.md#container_administration)
